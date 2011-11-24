@@ -1,0 +1,204 @@
+=================
+Python Scriptures
+=================
+
+python-scriptures is a Python package and regular expression library for
+validating, extracting, and normalizing biblical scripture references from
+blocks of text.
+
+For more information, see http://www.davisd.com/projects/python-scriptures/
+
+Typical usage is as follows::
+
+    #!/usr/bin/env python
+
+    >>> import scriptures
+    >>> scriptures.extract('This is a test Rom 3:23-28 and 1 JOHn 2')
+    [('Romans', 3, 23, 3, 28), ('I John', 2, 1, 2, 29)]
+
+Range validation is performed automatically and invalid references are not
+extracted.
+
+    >>> import scriptures
+    >>> scriptures.extract('Romans 3:23 is real, but Romans 2:30 is invalid.')
+    [('Romans', 3, 23, 3, 23)]
+
+
+Installation
+============
+
+A setup script (setup.py) is provided.  To install, simply run the script with
+the install command:
+
+$ python setup.py install
+
+Or just put the scriptures package somewhere on the Python path.
+
+
+API
+===
+
+Return Values
+-------------
+
+When a "scripture reference" is returned, it is always a five value tuple
+consisting of:
+
+('Book name', start chapter, start verse, end chapter, end verse)
+
+
+Functions
+---------
+
+There are four public functions exposed by this package.
+
+extract
+~~~~~~~
+
+Extract a list of tupled scripture references from a block of text.
+
+Arguments:
+
+    text -- the block of text containing potential scripture references
+
+Example:
+
+    >>> import scriptures
+    >>> scriptures.extract('This is a test Rom 3:23-28 and 1 JOHn 2')
+    [('Romans', 3, 23, 3, 28), ('I John', 2, 1, 2, 29)]
+
+reference_to_string
+~~~~~~~~~~~~~~~~~~~
+
+Get a display friendly string from a scripture reference.
+
+Arguments:
+
+    bookname -- the full or abbreviated book name
+
+    chapter -- the starting chapter
+
+Optional Arguments:
+
+    verse -- the starting verse
+
+    end_chapter -- the ending chapter
+
+    end_verse -- the ending verse
+
+Examples:
+
+    >>> import scriptures
+    >>> scriptures.reference_to_string('acts', 1)
+    'Acts 1'
+    >>> scriptures.reference_to_string('John', 3, 16)
+    'John 3:16'
+    >>> scriptures.reference_to_string('Rom', 3, 23, 3, 28)
+    'Romans 3:23-28'
+    >>> scriptures.reference_to_string('ecc', 1, 2, 2)
+    'Ecclesiastes 1:2-2:26'
+
+
+normalize_reference
+~~~~~~~~~~~~~~~~~~~
+
+Get a complete five value tuple scripture reference with full book name from
+partial data.
+
+Arguments:
+
+    bookname -- the full or abbreviated book name
+
+    chapter -- the starting chapter
+
+Optional Arguments:
+
+    verse -- the starting verse
+
+    end_chapter -- the ending chapter
+
+    end_verse -- the ending verse
+
+Examples:
+
+    >>> import scriptures
+    >>> scriptures.normalize_reference('acts', 1)
+    ('Acts', 1, 1, 1, 26)
+    >>> scriptures.reference_to_string('John', 3, 16)
+    ('John', 3, 16, 3, 16)
+    >>> scriptures.reference_to_string('Rom', 3, 23, 3, 28)
+    ('Romans', 3, 23, 3, 28)
+    >>> scriptures.reference_to_string('ecc', 1, 2, 2)
+    ('Ecclesiastes', 1, 2, 2, 26)
+
+
+is_valid_reference
+~~~~~~~~~~~~~~~~~~
+
+Check to see if a scripture reference is valid.
+
+Arguments:
+
+    bookname -- the full or abbreviated book name
+
+    chapter -- the starting chapter
+
+Optional Arguments:
+
+    verse -- the starting verse
+
+    end_chapter -- the ending chapter
+
+    end_verse -- the ending verse
+
+Examples:
+
+    >>> import scriptures
+    >>> scriptures.is_valid_reference('John', 3, 16)
+    True
+    >>> scriptures.is_valid_reference('ecc', 1, 2, 2)
+    True
+    >>> scriptures.is_valid_reference('Romans', 2, 30)
+    False
+    >>> scriptures.is_valid_reference('Romans', 2, 20, 2, 29)
+    True
+
+
+Regular Expressions
+-------------------
+
+There are two compiled regular expression patterns exposed by this package.
+
+book_re
+~~~~~~~
+
+Match a valid abbreviation or book name.
+
+Examples:
+
+    >>> import scriptures
+    >>> import re
+    >>> re.findall(scriptures.book_re, 'Matt test Ecclesiastes and 2 peter')
+    ['Matt', 'Ecclesiastes', '2 peter']    
+
+
+scripture_re
+~~~~~~~~~~~~
+
+Match a scripture reference pattern from a valid abbreviation or book name.
+
+Examples:
+
+    >>> import scriptures
+    >>> import re
+    >>> re.findall(scriptures.scripture_re, 'Matt 3 & Acts 1:2-3 Rev 2:1-3:2')
+    [('Matt', '3', '', '', ''), ('Acts', '1', '2', '', '3'),
+    ('Rev', '2', '1', '3', '2')]
+
+
+Author
+======
+
+David Davis <davisd@davisd.com>
+http://www.davisd.com
+

@@ -1,0 +1,9 @@
+syntax: glob
+
+*.pyc
+*.swp
+/env/
+/build/
+
+MANIFEST
+/dist/
