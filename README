@@ -125,11 +125,11 @@ Examples:
     >>> import scriptures
     >>> scriptures.normalize_reference('acts', 1)
     ('Acts', 1, 1, 1, 26)
-    >>> scriptures.reference_to_string('John', 3, 16)
+    >>> scriptures.normalize_reference('John', 3, 16)
     ('John', 3, 16, 3, 16)
-    >>> scriptures.reference_to_string('Rom', 3, 23, 3, 28)
+    >>> scriptures.normalize_reference('Rom', 3, 23, 3, 28)
     ('Romans', 3, 23, 3, 28)
-    >>> scriptures.reference_to_string('ecc', 1, 2, 2)
+    >>> scriptures.normalize_reference('ecc', 1, 2, 2)
     ('Ecclesiastes', 1, 2, 2, 26)
 
 
