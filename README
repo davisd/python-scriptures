@@ -23,6 +23,15 @@ extracted.
     >>> scriptures.extract('Romans 3:23 is real, but Romans 2:30 is invalid.')
     [('Romans', 3, 23, 3, 23)]
 
+References with single chapter books do not require the chapter be specified.
+
+    >>> import scriptures
+    >>> scriptures.extract('You can specify a single verse such as Jude 4')
+    [('Jude', 1, 4, 1, 4)]
+    >>> scriptures.extract('Or specify multiple verses with jude 2-5...')
+    [('Jude', 1, 2, 1, 5)]
+
+
 
 Installation
 ============
