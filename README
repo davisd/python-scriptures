@@ -108,6 +108,14 @@ Examples:
     >>> scriptures.reference_to_string('ecc', 1, 2, 2)
     'Ecclesiastes 1:2-2:26'
 
+Single Chapter Book Examples:
+
+    >>> import scriptures
+    >>> scriptures.reference_to_string('jude', 1, 4)
+    'Jude 4'
+    >>> scriptures.reference_to_string('2john', 1, 4, 1, 7)
+    'II John 4-7'
+
 
 normalize_reference
 ~~~~~~~~~~~~~~~~~~~
