@@ -68,6 +68,23 @@ def normalize_reference(bookname, chapter, verse=None,
     from partial data
     """
     book = get_book(bookname)
+
+    # SPECIAL CASE FOR BOOKS WITH ONE CHAPTER:
+    # If there is only one chapter in this book, set the chapter to one and
+    # treat the incoming chapter argument as though it were the verse.
+    # This normalizes references such as:
+    # Jude 2 and Jude 2-4
+    if len(book[3]) == 1:
+        if verse is None and end_chapter is None:
+            verse=chapter
+            chapter=1
+    else:
+        # This is not a single chapter book.
+        # If a start verse was NOT provided, but an end_verse was- we have a
+        # reference such as John 3-4 which is invalid.
+        if verse is None and end_verse:
+            raise InvalidReferenceException()
+
     # Convert to integers or leave as None
     chapter = int(chapter) if chapter else None
     verse = int(verse) if verse else None
