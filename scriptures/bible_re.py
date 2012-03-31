@@ -90,5 +90,13 @@ book_re_string=get_book_re()
 book_re = re.compile(book_re_string, re.IGNORECASE)
 
 # compiled scripture reference regular expression
-scripture_re = re.compile(r'(?P<BookTitle>%s)\s*(?P<ChapterNumber>\d{1,3})(?:\s*:\s*(?P<VerseNumber>\d{1,3}))?(?:\s*-\s*(?P<EndChapterNumber>\d{1,3}(?=\s*:\s*))?(?:\s*:\s*)?(?P<EndVerseNumber>\d{1,3})?)?' % (book_re_string,), re.IGNORECASE)
+scripture_re = re.compile(
+    r'(?P<BookTitle>%s)\s*' \
+     '(?P<ChapterNumber>\d{1,3})' \
+     '(?:\s*:\s*(?P<VerseNumber>\d{1,3}))?' \
+     '(?:\s*-\s*' \
+     '(?P<EndChapterNumber>\d{1,3}(?=\s*:\s*))?' \
+     '(?:\s*:\s*)?' \
+     '(?P<EndVerseNumber>\d{1,3})?' \
+     ')?' % (book_re_string,), re.IGNORECASE)
 
