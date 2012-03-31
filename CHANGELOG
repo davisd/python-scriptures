@@ -1,0 +1,29 @@
+1.0.0 (2011-11-24) - Initial Release
+====================================
+
+* python-scriptures is a Python package and regular expression library for
+  validating, extracting, and normalizing biblical scripture references from
+  blocks of text.
+
+1.0.1 (2011-11-25) - Doc Fix
+============================
+
+* Fixed documentation error in README
+
+1.1.0 (2012_03-31) - Single Chapter Books
+=========================================
+
+* Updated scripture reference regex to recognize an end chapter and verse even
+  if no start verse is provided
+
+* Added special case reference normalization for single chapter books
+
+* Broke scripture_re regex into multiple lines for better legibility
+
+* Updated documentation to explain single chapter book extraction
+
+* Rewrote reference_to_string and provided better output for single chapter book
+  references
+
+* Added single chapter book reference_to_string examples to documentation
+
