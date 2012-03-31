@@ -46,20 +46,34 @@ def reference_to_string(bookname, chapter, verse=None,
     """
     Get a display friendly string from a scripture reference
     """
+    book=None
+
     normalized = normalize_reference(bookname, chapter, verse,
-                                              end_chapter, end_verse)
-    if normalized[1]==normalized[3] and normalized[2]==1 and normalized[4] > 1:
-        if get_book(normalized[0])[3][normalized[1]-1] == normalized[4]:
-            return '{0} {1}'.format(normalized[0], normalized[1])
-        
-    tostring = '{0} {1}:{2}'.format(normalized[0], normalized[1], normalized[2])
-    if not (normalized[1] == normalized[3] and normalized[2] == normalized[4]):
-        if normalized[1] == normalized[3]:
-            return tostring + '-{0}'.format(normalized[4])
-        else:
-            return tostring + '-{0}:{1}'.format(normalized[3], normalized[4])
-    else:
-        return tostring
+        end_chapter, end_verse)
+
+    # if start and end chapters are the same
+    if normalized[1] == normalized[3]:
+        book = get_book(normalized[0])
+
+        if len(book[3]) == 1: # single chapter book
+            # If start and end verses are the same
+            if normalized[2] == normalized[4]:
+                return '{0} {1}'.format(*normalized[0::2])
+            else:
+                return '{0} {1}-{2}'.format(*normalized[0::2])
+        else: # multichapter book
+            # If the start verse is one and the end verse is the last verse in
+            # the chapter
+            if normalized[2] == 1 and normalized[4] == book[3][normalized[1]-1]:
+                return '{0} {1}'.format(*normalized[:2])
+            # If start and end verses are the same
+            elif normalized[2] == normalized[4]:
+                return '{0} {1}:{2}'.format(*normalized[:3])
+            else:
+                return '{0} {1}:{2}-{3}'.format(
+                    *(normalized[:3] + normalized[-1:]))
+    else: # start and end chapters are different
+        return '{0} {1}:{2}-{3}:{4}'.format(*normalized)
 
 def normalize_reference(bookname, chapter, verse=None,
                                   end_chapter=None, end_verse=None):
