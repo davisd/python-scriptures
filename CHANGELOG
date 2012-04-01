@@ -10,7 +10,7 @@
 
 * Fixed documentation error in README
 
-1.1.0 (2012_03-31) - Single Chapter Books
+1.1.0 (2012-03-31) - Single Chapter Books
 =========================================
 
 * Updated scripture reference regex to recognize an end chapter and verse even
