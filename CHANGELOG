@@ -27,3 +27,8 @@
 
 * Added single chapter book reference_to_string examples to documentation
 
+1.1.1 (2013-04-01) - Regex Fix
+==============================
+
+* Updated scripture reference regex to require a word boundry before the book title
+
