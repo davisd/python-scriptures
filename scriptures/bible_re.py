@@ -91,7 +91,7 @@ book_re = re.compile(book_re_string, re.IGNORECASE)
 
 # compiled scripture reference regular expression
 scripture_re = re.compile(
-    r'(?P<BookTitle>%s)\s*' \
+    r'\b(?P<BookTitle>%s)\s*' \
      '(?P<ChapterNumber>\d{1,3})' \
      '(?:\s*:\s*(?P<VerseNumber>\d{1,3}))?' \
      '(?:\s*-\s*' \
