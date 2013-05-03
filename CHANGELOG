@@ -32,3 +32,8 @@
 
 * Updated scripture reference regex to require a word boundry before the book title
 
+1.1.2 (2013-05-03) - Obadiah Regex Fix
+======================================
+
+* Fixed Obadiah book name regular expression - Thank you Ben McFadden (mcfadden)
+
