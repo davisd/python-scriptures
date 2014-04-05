@@ -37,3 +37,8 @@
 
 * Fixed Obadiah book name regular expression - Thank you Ben McFadden (mcfadden)
 
+1.1.3 (2014-04-05) - Psalms Regex Fix
+=====================================
+
+* Psalms regular expression now recognizes "Psalms" in addition to "Ps", "Psa", "Psalm".
+
