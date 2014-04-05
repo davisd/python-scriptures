@@ -42,3 +42,10 @@
 
 * Psalms regular expression now recognizes "Psalms" in addition to "Ps", "Psa", "Psalm".
 
+2.0.0 (2014-04-05) - Python 3 Compatibility
+===========================================
+
+* Made some simple adjustments so that python-scriptures now works with python 3.
+  - module imports now use relative import syntax
+  - use .values() on small dict instead of .itervalues()
+

@@ -2,9 +2,9 @@
 Python Scriptures
 =================
 
-python-scriptures is a Python package and regular expression library for
-validating, extracting, and normalizing biblical scripture references from
-blocks of text.
+python-scriptures is a Python 2 and Python 3 compatible package and regular
+expression library for validating, extracting and normalizing biblical
+scripture references from blocks of text.
 
 For more information, see http://www.davisd.com/projects/python-scriptures/
 
