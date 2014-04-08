@@ -1,3 +1,4 @@
+from __future__ import unicode_literals
 import re
 
 # Testaments, Book Name, Osis Abbreviation (Also preferred abbreviation), Regex,
@@ -87,16 +88,16 @@ def get_book_re():
 book_re_string=get_book_re()
 
 # compiled book regular expression
-book_re = re.compile(book_re_string, re.IGNORECASE)
+book_re = re.compile(book_re_string, re.IGNORECASE | re.UNICODE)
 
 # compiled scripture reference regular expression
 scripture_re = re.compile(
     r'\b(?P<BookTitle>%s)\s*' \
      '(?P<ChapterNumber>\d{1,3})' \
      '(?:\s*:\s*(?P<VerseNumber>\d{1,3}))?' \
-     '(?:\s*-\s*' \
+     '(?:\s*[-\u2013\u2014]\s*' \
      '(?P<EndChapterNumber>\d{1,3}(?=\s*:\s*))?' \
      '(?:\s*:\s*)?' \
      '(?P<EndVerseNumber>\d{1,3})?' \
-     ')?' % (book_re_string,), re.IGNORECASE)
+     ')?' % (book_re_string,), re.IGNORECASE | re.UNICODE)
 

@@ -213,6 +213,13 @@ Examples:
     ('Rev', '2', '1', '3', '2')]
 
 
+Unicode
+=======
+
+This library is unicode compatible and recognizes the \u2013 en dash and \u2014
+em dash.
+
+
 Author
 ======
 
