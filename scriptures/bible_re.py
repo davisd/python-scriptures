@@ -62,7 +62,7 @@ testaments = {'ot': (
 ('I Timothy', '1Tim', '(?:1|I)(?:\s)?Tim(?:othy)?', [20, 15, 16, 16, 25, 21]),
 ('II Timothy', '2Tim', '(?:2|II)(?:\s)?Tim(?:othy)?', [18, 26, 17, 22]),
 ('Titus', 'Titus', 'Tit(?:us)?', [16, 15, 15]),
-('Philemon', 'Phlm', 'Phile(?:mon)?', [25]),
+('Philemon', 'Phlm', 'Phlm|Phile(?:mon)?', [25]),
 ('Hebrews', 'Heb', 'Heb(?:rews)?', [14, 18, 19, 16, 14, 20, 28, 13, 28, 39, 40, 29, 25]),
 ('James', 'Jas', 'Ja(?:me)?s', [27, 26, 18, 17, 20]),
 ('I Peter', '1Pet', '(?:1|I)(?:\s)?Pet(?:er)?', [25, 25, 22, 19, 14]),
