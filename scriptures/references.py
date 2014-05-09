@@ -14,7 +14,7 @@ def get_book(name):
     """
     for books in testaments.values():
         for book in books:
-            if re.match(book[2], name, re.IGNORECASE):
+            if re.match('^%s$' % book[2], name, re.IGNORECASE):
                 return book
     return None
 
