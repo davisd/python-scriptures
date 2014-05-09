@@ -49,3 +49,10 @@
   - module imports now use relative import syntax
   - use .values() on small dict instead of .itervalues()
 
+2.1.0 (2014-05-08) - Unicode Compatibility and Bugfixes
+=======================================================
+
+* Made the library unicode compatible with the ability to recognize the \u2013 en and \2014 em dashes
+* Added the OSIS Phlm abbreviation to the Philemon regex
+* Fixed a regex book matching bug that was causing Philemon references to match as Philippians (Thank you Ganon11 for the bug report)
+
