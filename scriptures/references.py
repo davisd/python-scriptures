@@ -104,10 +104,6 @@ def normalize_reference(bookname, chapter, verse=None,
             end_chapter=end_verse
             end_verse=None
 
-    print([bookname, chapter, verse, end_chapter, end_verse])
-
-            
-
 
     # Convert to integers or leave as None
     chapter = int(chapter) if chapter else None
