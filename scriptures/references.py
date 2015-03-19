@@ -83,8 +83,6 @@ def normalize_reference(bookname, chapter, verse=None,
     """
     book = get_book(bookname)
 
-    print([bookname, chapter, verse, end_chapter, end_verse])
-
     # SPECIAL CASES FOR: BOOKS WITH ONE CHAPTER AND MULTI-CHAPTER REFERENCES
 
     # If the ref is in format: (Book, #, None, None, ?)
