@@ -56,3 +56,9 @@
 * Added the OSIS Phlm abbreviation to the Philemon regex
 * Fixed a regex book matching bug that was causing Philemon references to match as Philippians (Thank you Ganon11 for the bug report)
 
+2.1.2 (2015-03-18) - Multi-Chapter references
+=============================================
+
+* Can now reference multiple chapters
+  - ex: Revelation 2-3
+

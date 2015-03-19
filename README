@@ -23,6 +23,12 @@ extracted.
     >>> scriptures.extract('Romans 3:23 is real, but Romans 2:30 is invalid.')
     [('Romans', 3, 23, 3, 23)]
 
+Multi-Chapter references work:
+
+    >>> import scriptures
+    >>> scriptures.extract('You can specify a range of chapters like Rev 2-3')
+    [('Revelation of Jesus Christ', 2, 1, 3, 22)]
+    
 References with single chapter books do not require the chapter be specified.
 
     >>> import scriptures
