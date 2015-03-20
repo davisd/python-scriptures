@@ -23,7 +23,8 @@ class TestFormatting(unittest.TestCase):
         self.assertEqual(f('John 2:3'), 'John 2:3')
 
         # single-chapter book
-        self.assertEqual(f('Jude 1:3'), 'Jude 1:3')
+        self.assertEqual(f('Jude 3'), 'Jude 3')
+        self.assertEqual(f('Jude 1:3'), 'Jude 3')
 
     def test_single_chapter_ref(self):
         """
@@ -41,21 +42,21 @@ class TestFormatting(unittest.TestCase):
 
     def test_multiverse_ref(self):
         """
-        format: book c:v-ev
+        multi-chapter  format: book c:v-ev
+        single-chapter format: book v-ev
         """
         # multi-chapter book
         self.assertEqual(f('John 1:1-3'), 'John 1:1-3')
         self.assertEqual(f('John 2:3-5'), 'John 2:3-5')
 
         # single-chapter book
-        self.assertEqual(f('Jude 1:3-5'), 'Jude 1:3-5')
+        self.assertEqual(f('Jude 1:3-5'), 'Jude 3-5')
 
     def test_multichapter_multiverse_ref(self):
         """
         format: book c:v-ec:ev
         """
         # multi-chapter book
-        self.assertEqual(f('John 2:2-2:7'), 'John 2:2-2:7')
         self.assertEqual(f('John 2:3-4:5'), 'John 2:3-4:5')
 
         # N/A for single-chapter book
