@@ -48,32 +48,30 @@ def reference_to_string(bookname, chapter, verse=None,
     """
     book=None
 
-    normalized = normalize_reference(bookname, chapter, verse,
+    bn, c, v, ec, ev = normalize_reference(bookname, chapter, verse,
         end_chapter, end_verse)
 
-    # if start and end chapters are the same
-    if normalized[1] == normalized[3]:
-        book = get_book(normalized[0])
+    book = get_book(bn)
 
-        if len(book[3]) == 1: # single chapter book
-            # If start and end verses are the same
-            if normalized[2] == normalized[4]:
-                return '{0} {1}'.format(*normalized[0::2])
-            else:
-                return '{0} {1}-{2}'.format(*normalized[0::2])
-        else: # multichapter book
-            # If the start verse is one and the end verse is the last verse in
-            # the chapter
-            if normalized[2] == 1 and normalized[4] == book[3][normalized[1]-1]:
-                return '{0} {1}'.format(*normalized[:2])
-            # If start and end verses are the same
-            elif normalized[2] == normalized[4]:
-                return '{0} {1}:{2}'.format(*normalized[:3])
-            else:
+    if c == ec and len(book[3]) == 1: # single chapter book
+        if v == ev: # single verse
+            return '{0} {1}'.format(bn, v)
+        else: # multiple verses
+            return '{0} {1}-{2}'.format(bn, v, ev)
+    else: # multichapter book
+        if c == ec: # same start and end chapters
+            if v == 1 and ev == book[3][c-1]: # full chapter
+                return '{0} {1}'.format(bn, c)
+            elif v == ev: # single verse
+                return '{0} {1}:{2}'.format(bn, c, v)
+            else: # multiple verses
                 return '{0} {1}:{2}-{3}'.format(
-                    *(normalized[:3] + normalized[-1:]))
-    else: # start and end chapters are different
-        return '{0} {1}:{2}-{3}:{4}'.format(*normalized)
+                    bn, c, v, ev)
+        else: # multiple chapters
+            if v == 1 and ev == book[3][ec-1]: # multichapter ref
+                return '{0} {1}-{2}'.format(bn, c, ec)
+            else: # multi-chapter, multi-verse ref
+                return '{0} {1}:{2}-{3}:{4}'.format(bn, c, v, ec, ev)
 
 def normalize_reference(bookname, chapter, verse=None,
                                   end_chapter=None, end_verse=None):
