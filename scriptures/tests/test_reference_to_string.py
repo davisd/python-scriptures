@@ -10,13 +10,17 @@ def f(txt):
     return reference_to_string(
             *normalize_reference(*scripture_re.match(txt).groups()))
 
-class TestFormatting(unittest.TestCase):
+class TestReferenceToSting(unittest.TestCase):
     def setUp(self):
         pass
 
     def test_single_reference(self):
         """
-        format: book c:v
+        for multi-chapter books, output should be
+          book c:v
+        for single-chapter books, output should be
+          book v
+
         """
         # multi-chapter book
         self.assertEqual(f('John 1:1'), 'John 1:1')
@@ -28,22 +32,24 @@ class TestFormatting(unittest.TestCase):
 
     def test_single_chapter_ref(self):
         """
-        format: book c
-
-        This format is repeated in a different test for a single-chapter
-        book, where it is interpreted as: book v
+        for multi-chapter books, output should be
+          book c
+        for single-chapter books, this does not make sense, as b x is
+        interpreted as b v
 
         """
         # multi-chapter book
+        self.assertEqual(f('John 1:1-51'), 'John 1')
         self.assertEqual(f('John 1'), 'John 1')
+        self.assertEqual(f('John 2:1-25'), 'John 2')
         self.assertEqual(f('John 2'), 'John 2')
-
-        # N/A for single-chapter book
 
     def test_multiverse_ref(self):
         """
-        multi-chapter  format: book c:v-ev
-        single-chapter format: book v-ev
+        for multi-chapter books, output should be
+          book c:v-ev
+        for single-chapter books, output should be
+          book v-ev
         """
         # multi-chapter book
         self.assertEqual(f('John 1:1-3'), 'John 1:1-3')
@@ -51,22 +57,27 @@ class TestFormatting(unittest.TestCase):
 
         # single-chapter book
         self.assertEqual(f('Jude 1:3-5'), 'Jude 3-5')
+        self.assertEqual(f('Jude 3-5'), 'Jude 3-5')
 
     def test_multichapter_multiverse_ref(self):
         """
-        format: book c:v-ec:ev
+        for multi-chapter books, output should be
+          b c:v-ec:ev
+        for single-chapter books, input and output chapters are both one
+          b v-ev
         """
         # multi-chapter book
         self.assertEqual(f('John 2:3-4:5'), 'John 2:3-4:5')
 
-        # N/A for single-chapter book
+        # single-chapter book
+        self.assertEqual(f('Jude 1:3-1:5'), 'Jude 3-5')
 
     def test_multichapter_ref(self):
         """
-        format: book c-ec
-
-        This format is repeated in a different test for a single-chapter
-        book, where it is interpreted as: book v-ev
+        for multi-chapter books, output should be:
+          b c-ec
+        for single-chapter books, this does not make sense, as b x-x is
+        interpreted as b v-ev
         """
         # multi-chapter book
         self.assertEqual(f('John 1-5'), 'John 1-5')
@@ -76,10 +87,11 @@ class TestFormatting(unittest.TestCase):
 
     def test_singlechapter_book_verse_ref(self):
         """
-        format: book v
+        for multi-chapter books, this does not make sense as b x is interpreted
+        as book c
 
-        This format is repeated in a different test for a multi-chapter
-        book, where it is interpreted as: book c
+        for single-chapter books, output should be:
+          b v
         """
         # N/A for multi-chapter book
 
@@ -89,10 +101,11 @@ class TestFormatting(unittest.TestCase):
 
     def test_singlechapter_book_multiverse_ref(self):
         """
-        format: book v-ev
+        for mult-chapter books, this does not make sense as b x-x is
+        interpreted as b c-ec
 
-        This format is repeated in a different test for a multi-chapter
-        book, where it is interpreted as: book c-ec
+        for single-chapter books, output should be:
+          b v-ev
         """
         # N/A for multi-chapter book
 
