@@ -67,3 +67,18 @@
 
 * Removed print debug msg
 
+2.2.0 (2015-03-20) - Test Suite, Better Output, Better Book Variant Matching
+============================================================================
+
+* Added a full test suite to verify
+  - chapter and verse style normalization
+  - output formatting
+  - book names and abbreviations
+* Added multi-chapter output format (ex. John 1:1-2:25 will yield John 1-2)
+* Updated book regular expressions
+  - added Eccles for Ecclesiasates
+  - added Chron abbreviation for I and II Chronicles (ex. I Chron)
+  - added Philem for Philemon
+  - added Jon for Jonah
+  - added Song of Sol for Song of Solomon
+

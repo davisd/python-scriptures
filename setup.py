@@ -2,7 +2,7 @@ from distutils.core import setup
 
 setup(
     name='python-scriptures',
-    version='2.2.0pre',
+    version='2.2.0',
     author='David Davis',
     author_email='davisd@davisd.com',
     packages=['scriptures',],

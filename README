@@ -112,6 +112,8 @@ Examples:
     'Romans 3:23-28'
     >>> scriptures.reference_to_string('ecc', 1, 2, 2)
     'Ecclesiastes 1:2-2:26'
+    >>> scriptures.reference_to_string('john', 1, 1, 2, 25)
+    'John 1-2'
 
 Single Chapter Book Examples:
 
@@ -224,6 +226,17 @@ Unicode
 
 This library is unicode compatible and recognizes the \u2013 en dash and \u2014
 em dash.
+
+
+Test Suite
+==========
+
+Unit tests are provided to verify chapter and verse style normalization, output
+formatting, and book names and abbreviations.
+
+To run the test suite, cwd to just outside of the scriptures package and:
+
+$ python -m unittest discover
 
 
 Author
