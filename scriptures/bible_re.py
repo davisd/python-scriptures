@@ -35,7 +35,7 @@ testaments = {'ot': (
 ('Joel', 'Joel', 'Joel', [20, 32, 21]),
 ('Amos', 'Amos', 'Amos', [15, 16, 15, 13, 27, 14, 17, 14, 15]),
 ('Obadiah', 'Obad', 'Obad(?:iah)?', [21]),
-('Jonah', 'Jonah', 'Jonah', [17, 10, 10, 11]),
+('Jonah', 'Jonah', 'Jon(?:ah)?', [17, 10, 10, 11]),
 ('Micah', 'Mic', 'Mic(?:ah)?', [16, 13, 12, 13, 15, 16, 20]),
 ('Nahum', 'Nah', 'Nah(?:um)?', [15, 13, 19]),
 ('Habakkuk', 'Hab', 'Hab(?:akkuk)?', [17, 20, 19]),
