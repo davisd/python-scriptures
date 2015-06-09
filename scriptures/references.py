@@ -99,6 +99,12 @@ def normalize_reference(bookname, chapter, verse=None,
             verse=1
             end_chapter=end_verse
             end_verse=None
+    # If the ref is in the format (Book, #, None, #, #)
+    # this is a special case that indicates a reference in the format Book 3-4:5
+    elif chapter is not None and verse is None and end_chapter is not None:
+        # The solution is to set the verse to one, which is what is
+        # most likely intended
+        verse = 1
 
 
     # Convert to integers or leave as None
