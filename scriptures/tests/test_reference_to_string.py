@@ -112,3 +112,19 @@ class TestReferenceToSting(unittest.TestCase):
         # single-chapter book
         self.assertEqual(f('Jude 2-6'), 'Jude 2-6')
 
+    def test_implied_first_verse_ref(self):
+        """
+        for multi-chapter books, single chapter ref, output should be
+          b c:v-ev
+        for multi-chapter books, multi chapter ref, output should be
+          b c:v-ec:ev
+        for single-chapter books, input and output chapters are both one
+          b v-ev
+        """
+
+        # multi-chapter book
+        self.assertEqual(f('John 2-2:4'), 'John 2:1-4')
+        self.assertEqual(f('John 2-3:3'), 'John 2:1-3:3')
+
+        # single-chapter book
+        self.assertEqual(f('Jude 1-1:6'), 'Jude 1-6')

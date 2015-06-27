@@ -93,3 +93,26 @@ class TestNormalization(unittest.TestCase):
         # single-chapter book
         self.assertEqual(normalize('Jude 2-6'), ('Jude', 1, 2, 1, 6))
 
+    def test_implied_first_verse_ref_single_chapter(self):
+        """
+        format: book ch-ech:ev
+        """
+        # single-chapter book
+        self.assertEqual(normalize('1 John 1-1:5'), ('I John', 1, 1, 1, 5))
+
+        # multi-chapter book
+        self.assertEqual(normalize('I Sam 28-28:2'), ('I Samuel', 28, 1, 28, 2))
+
+
+    def test_implied_first_verse_ref_multi_chapter(self):
+        """
+        format: book ch-ech:ev
+        """
+        # single-chapter book
+        self.assertEqual(normalize('Jude 1-1:5'), ('Jude', 1, 1, 1, 5))
+
+        # multi-chapter book
+        self.assertEqual(normalize('I Sam 1-2:15'), ('I Samuel', 1, 1, 2, 15))
+        self.assertEqual(normalize('I Sam 2-3:5'), ('I Samuel', 2, 1, 3, 5))
+
+
