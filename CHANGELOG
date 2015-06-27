@@ -82,3 +82,8 @@
   - added Jon for Jonah
   - added Song of Sol for Song of Solomon
 
+2.2.1 (2015-06-27) - Added new format: book ch-ech:ev
+=====================================================
+* Thanks to @mpnordland for the bug report and feature request
+  - I Sam 28-28:2 format now works as expected
+  - Multichapter references in this format such as I Sam 28-29:2 also work
