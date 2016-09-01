@@ -1,6 +1,6 @@
 import unittest
 
-from scriptures import normalize_reference, scripture_re, reference_to_string
+from .. import normalize_reference, scripture_re, reference_to_string
 
 def f(txt):
     """

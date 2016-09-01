@@ -1,4 +1,4 @@
-from texts.protestant import ProtestantCanon
+from .texts.protestant import ProtestantCanon
 
 # create an instance of the Protestant Canon to use as the default
 pcanon=ProtestantCanon()

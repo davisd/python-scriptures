@@ -1,6 +1,6 @@
 import unittest
 
-from scriptures import normalize_reference, scripture_re
+from .. import normalize_reference, scripture_re
 
 def normalize(txt):
     return normalize_reference(*scripture_re.match(txt).groups())
