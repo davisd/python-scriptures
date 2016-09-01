@@ -228,6 +228,15 @@ This library is unicode compatible and recognizes the \u2013 en dash and \u2014
 em dash.
 
 
+Additional Texts and Extending
+==============================
+
+As of v3.0.0, the library supports additional texts and makes extending the
+library trivial through additional modules.
+
+TODO: explain that.
+
+
 Test Suite
 ==========
 
