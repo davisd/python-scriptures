@@ -14,6 +14,8 @@ class TestBookNames(unittest.TestCase):
     def setUp(self):
         pass
 
+    # Old Testament
+
     def test_genesis(self):
         self.assertEqual(f('genesis 1:1'), 'Genesis 1:1')
         self.assertEqual(f('gen 1:1'), 'Genesis 1:1')
@@ -199,6 +201,10 @@ class TestBookNames(unittest.TestCase):
         self.assertEqual(f('malachi 1:1'), 'Malachi 1:1')
         self.assertEqual(f('mal 1:1'), 'Malachi 1:1')
 
+    # /Old Testament
+
+    # New Testament
+
     def test_matthew(self):
         self.assertEqual(f('matthew 1:1'), 'Matthew 1:1')
         self.assertEqual(f('matt 1:1'), 'Matthew 1:1')
@@ -371,4 +377,6 @@ class TestBookNames(unittest.TestCase):
         self.assertEqual(f('revelation 1:1'), 'Revelation of Jesus Christ 1:1')
         self.assertEqual(f('revelation of jesus christ 1:1'), 'Revelation of Jesus Christ 1:1')
         self.assertEqual(f('rev 1:1'), 'Revelation of Jesus Christ 1:1')
+
+    # /New Testament
 
