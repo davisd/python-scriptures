@@ -5,8 +5,8 @@ class Deuterocanon(Text):
     """
     Deuterocanonical Books
     """
-    books = [
-        ('Tobit', 'Tob', 'Tob(?:it)?', [22, 14, 17, 21, 22, 17, 18, 21, 6, 12, 19, 22, 18, 15,]),
+    books = {
+        'tob': ('Tobit', 'Tob', 'Tob(?:it)?', [22, 14, 17, 21, 22, 17, 18, 21, 6, 12, 19, 22, 18, 15,]),
 
         # TODO:
         # Judith
@@ -22,5 +22,5 @@ class Deuterocanon(Text):
         # 1 Maccabees
         # 2 Maccabees
 
-    ]
+        }
 
