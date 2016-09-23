@@ -11,14 +11,12 @@ class Text:
     def __init__(self):
         # Check for books
         if hasattr(self, 'books'):
-            try:
-                # make sure it's iterable
-                iter(self.books)
-            except:
-                raise Exception('"books" should be an iterable of four valued tuples (Book Name, Abbreviation, Regex, [ch1_verse_count, ch2_verse_count, ...])')
+            # make sure it is a dictionary
+            if not isinstance(self.books, dict):
+                raise Exception('"books" should be a dictionary, who\'s values are four valued tuples (Book Name, Abbreviation, Regex, [ch1_verse_count, ch2_verse_count, ...])')
 
             # set the regex instance variables
-            self.book_re_string ='|'.join(b[2] for b in self.books)
+            self.book_re_string ='|'.join(b[2] for b in self.books.values())
             self.book_re = re.compile(self.book_re_string, re.IGNORECASE | re.UNICODE)
 
             # set instance compiled scripture reference regex
@@ -39,7 +37,7 @@ class Text:
         """
         Get a book from its name or None if not found
         """
-        for book in self.books:
+        for book in self.books.values():
             if re.match('^%s$' % book[2], name, re.IGNORECASE):
                 return book
 
