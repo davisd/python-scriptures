@@ -7,17 +7,6 @@ class Deuterocanon(Text):
     Deuterocanonical Books
     """
     books = {
-        '1esd': ('I Esdras', '1Esd', '(?:1|I) ?Esd(?:ras)?',
-                 [
-                     58, 39, 24, 63, 73, 34, 15, 96, 55
-                 ]),
-        
-        '2esd': ('II Esdras', '2Esd', '(?:2|II) ?Esd(?:ras)?',
-                 [
-                     40, 48, 36, 52, 56, 59, 140, 63, 47,
-                     59, 46, 51, 58, 48, 63, 78
-                 ]),
-        
         'tob': ('Tobit', 'Tob', 'Tob(?:it)?',
                 [22, 14, 17, 21, 22, 17, 18, 21, 6, 12, 19, 22, 18, 15]),
 
@@ -67,10 +56,6 @@ class Deuterocanon(Text):
         'beldragon': ('Bel and the Dragon', 'beldragon',
                       'bel(?:(?: and the)? dragon)?',
                       [42]),
-
-        'prman': ('Prayer of Manasseh', 'prman',
-                  '(?:prayer of )?manasseh',
-                  [15]),
 
         '1macc': ('I Maccabees', '1Macc', '(?:1|I) ?Macc(?:abees)?',
                   [

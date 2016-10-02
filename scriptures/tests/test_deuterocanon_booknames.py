@@ -18,22 +18,6 @@ class TestDeuterocanonBookNames(unittest.TestCase):
     def setUp(self):
         pass
 
-    def test_1esd(self):
-        self.assertEqual(f('1esdras 1'),
-                         'I Esdras 1')
-        self.assertEqual(f('1esd 1'),
-                         'I Esdras 1')
-        self.assertEqual(f('Iesdras 1'),
-                         'I Esdras 1')
-
-    def test_2esd(self):
-        self.assertEqual(f('2esdras 1'),
-                         'II Esdras 1')
-        self.assertEqual(f('2esd 1'),
-                         'II Esdras 1')
-        self.assertEqual(f('IIesdras 1'),
-                         'II Esdras 1')
-
     def test_tobit(self):
         self.assertEqual(f('tobit 1:1'), 'Tobit 1:1')
         self.assertEqual(f('tob 1:1'), 'Tobit 1:1')
@@ -82,12 +66,6 @@ class TestDeuterocanonBookNames(unittest.TestCase):
                          'Bel and the Dragon 1')
         self.assertEqual(f('bel dragon 1'),
                          'Bel and the Dragon 1')
-
-    def test_prayer_of_manasseh(self):
-        self.assertEqual(f('prayer of manasseh 1'),
-                         'Prayer of Manasseh 1')
-        self.assertEqual(f('manasseh 1'),
-                         'Prayer of Manasseh 1')
 
     def test_1_maccabees(self):
         self.assertEqual(f('1 maccabees 1:1'), 'I Maccabees 1:1')
