@@ -68,8 +68,9 @@ class Deuterocanon(Text):
                       'bel(?:(?: and the)? dragon)?',
                       [42]),
 
-        'praymanasseh': ('Prayer of Manasseh', 'praymanasseh',
-                         '(?:prayer of )?manasseh', [1]),
+        'prman': ('Prayer of Manasseh', 'prman',
+                  '(?:prayer of )?manasseh',
+                  [15]),
 
         '1macc': ('I Maccabees', '1Macc', '(?:1|I) ?Macc(?:abees)?',
                   [
@@ -82,8 +83,4 @@ class Deuterocanon(Text):
                       36, 32, 40, 50, 27, 31, 42, 36, 29,
                       38, 38, 45, 26, 46, 39
                   ]),
-
-        'prman': ('The Prayer of Manasseh', 'PrMan',
-                  '(?:The )?Prayer(?: of Manasseh)?',
-                  [15]),
     }
