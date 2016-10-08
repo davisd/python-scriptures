@@ -30,7 +30,8 @@ class Deuterocanon(Text):
                     25, 22
                 ]),
 
-        'sir': ('Sirach', 'Sir', 'Sir(?:ach)?',
+        'sir': ('Sirach', 'Sir',
+            'Sir(?:ach)?|Ecclesiasticus',
                 [
                     30, 18, 31, 31, 15, 37, 36, 19, 18,
                     31, 34, 18, 26, 27, 20, 30, 32, 33,

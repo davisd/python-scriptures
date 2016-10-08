@@ -44,6 +44,7 @@ class TestDeuterocanonBookNames(unittest.TestCase):
     def test_ecclesiasticus_aka_sirach(self):
         self.assertEqual(f('sirach 1:1'), 'Sirach 1:1')
         self.assertEqual(f('sir 1:1'), 'Sirach 1:1')
+        self.assertEqual(f('ecclesiasticus 1:1'), 'Sirach 1:1')
 
     def test_baruch(self):
         self.assertEqual(f('baruch 1:1'), 'Baruch 1:1')
