@@ -51,8 +51,8 @@ class TestDeuterocanonBookNames(unittest.TestCase):
         self.assertEqual(f('bar 1:1'), 'Baruch 1:1')
 
     def test_letter_of_jeremiah(self):
-        self.assertEqual(f('letter of jeremiah 1'),
-                         'Letter of Jeremiah 1')
+        self.assertEqual(f('letter of jeremiah 1'), 'Letter of Jeremiah 1')
+        self.assertEqual(f('epjer 1'), 'Letter of Jeremiah 1')
 
     def testprayer_of_azariah(self):
         self.assertEqual(f('prayer of azariah 1'),

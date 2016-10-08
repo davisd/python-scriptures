@@ -46,8 +46,9 @@ class Deuterocanon(Text):
                     21, 35, 37, 37, 9
                 ]),
 
-        'epjer': ('Letter of Jeremiah', 'EpJer', 'Letter of Jeremiah',
-                  [73]),
+        'epjer': ('Letter of Jeremiah', 'EpJer',
+            'EpJer|Letter of Jeremiah',
+                [73]),
 
         'prayazariah': ('Prayer of Azariah', 'prayazariah',
                         '(?:prayer of )?Azar(?:iah)?',
