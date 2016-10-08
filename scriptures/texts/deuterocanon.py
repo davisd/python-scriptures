@@ -16,7 +16,8 @@ class Deuterocanon(Text):
                     23, 23, 20, 20, 19, 13, 25
                 ]),
 
-        'addesth': ('Esther (Greek)', 'AddEsth', 'Esther \\(Greek\\)?',
+        'addesth': ('Additions to Esther', 'AddEsth',
+            '(?:AddEsth|Additions to Esther|Esther \\(Greek\\))',
                     [
                         39, 23, 22, 47, 28, 14, 10, 41, 32, 13
                     ]),

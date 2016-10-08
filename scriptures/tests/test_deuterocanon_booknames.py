@@ -27,7 +27,9 @@ class TestDeuterocanonBookNames(unittest.TestCase):
         self.assertEqual(f('Jud 1:1'), 'Judith 1:1')
 
     def test_additions_to_esther(self):
-        self.assertEqual(f('esther (greek) 1:1'), 'Esther (Greek) 1:1')
+        self.assertEqual(f('esther (greek) 1:1'), 'Additions to Esther 1:1')
+        self.assertEqual(f('additions to esther 1:1'), 'Additions to Esther 1:1')
+        self.assertEqual(f('addesth 1:1'), 'Additions to Esther 1:1')
 
     def test_wisdom_of_solomon(self):
         self.assertEqual(f('the wisdom of solomon 1:1'),
