@@ -54,7 +54,9 @@ class Deuterocanon(Text):
             '(?:prayer of |Pr)?Azar(?:iah)?|Song of (?:the )?Three Children',
                         [68]),
 
-        'susanna': ('Susanna', 'susanna', 'susanna', [64]),
+        'sus': ('Susanna', 'susanna',
+            '(?:Story of )?sus(?:anna)?', 
+                [64]),
         
         'beldragon': ('Bel and the Dragon', 'beldragon',
                       'bel(?:(?: and the)? dragon)?',

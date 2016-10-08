@@ -63,6 +63,9 @@ class TestDeuterocanonBookNames(unittest.TestCase):
 
     def test_susanna(self):
         self.assertEqual(f('susanna 1'), 'Susanna 1')
+        self.assertEqual(f('sus 1'), 'Susanna 1')
+        self.assertEqual(f('story of susanna 1'), 'Susanna 1')
+        self.assertEqual(f('story of sus 1'), 'Susanna 1')
 
     def test_bel_and_the_dragon(self):
         self.assertEqual(f('bel and the dragon 1'),
