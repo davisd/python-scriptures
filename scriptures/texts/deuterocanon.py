@@ -50,8 +50,8 @@ class Deuterocanon(Text):
             'EpJer|Letter of Jeremiah',
                 [73]),
 
-        'prayazariah': ('Prayer of Azariah', 'prayazariah',
-                        '(?:prayer of )?Azar(?:iah)?',
+        'prazar': ('Prayer of Azariah', 'prazar',
+            '(?:prayer of |Pr)?Azar(?:iah)?|Song of (?:the )?Three Children',
                         [68]),
 
         'susanna': ('Susanna', 'susanna', 'susanna', [64]),

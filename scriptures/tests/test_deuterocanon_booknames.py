@@ -55,10 +55,11 @@ class TestDeuterocanonBookNames(unittest.TestCase):
         self.assertEqual(f('epjer 1'), 'Letter of Jeremiah 1')
 
     def testprayer_of_azariah(self):
-        self.assertEqual(f('prayer of azariah 1'),
-                         'Prayer of Azariah 1')
-        self.assertEqual(f('azar 1'),
-                         'Prayer of Azariah 1')
+        self.assertEqual(f('prayer of azariah 1'), 'Prayer of Azariah 1')
+        self.assertEqual(f('azar 1'), 'Prayer of Azariah 1')
+        self.assertEqual(f('prazar 1'), 'Prayer of Azariah 1')
+        self.assertEqual(f('song of the three children 1'), 'Prayer of Azariah 1')
+        self.assertEqual(f('song of three children 1'), 'Prayer of Azariah 1')
 
     def test_susanna(self):
         self.assertEqual(f('susanna 1'), 'Susanna 1')
