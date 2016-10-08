@@ -58,7 +58,7 @@ class Deuterocanon(Text):
             '(?:Story of )?sus(?:anna)?', 
                 [64]),
         
-        'beldragon': ('Bel and the Dragon', 'beldragon',
+        'bel': ('Bel and the Dragon', 'bel',
                       'bel(?:(?: and the)? dragon)?',
                       [42]),
 
