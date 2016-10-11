@@ -16,7 +16,8 @@ class Deuterocanon(Text):
                     23, 23, 20, 20, 19, 13, 25
                 ]),
 
-        'addesth': ('Esther (Greek)', 'AddEsth', 'Esther \\(Greek\\)?',
+        'addesth': ('Additions to Esther', 'AddEsth',
+            '(?:AddEsth|(?:Additions to|Rest of) Esther|Esther \\(Greek\\))',
                     [
                         39, 23, 22, 47, 28, 14, 10, 41, 32, 13
                     ]),
@@ -29,7 +30,8 @@ class Deuterocanon(Text):
                     25, 22
                 ]),
 
-        'sir': ('Sirach', 'Sir', 'Sir(?:ach)?',
+        'sir': ('Sirach', 'Sir',
+            'Sir(?:ach)?|Ecclesiasticus',
                 [
                     30, 18, 31, 31, 15, 37, 36, 19, 18,
                     31, 34, 18, 26, 27, 20, 30, 32, 33,
@@ -44,16 +46,19 @@ class Deuterocanon(Text):
                     21, 35, 37, 37, 9
                 ]),
 
-        'epjer': ('Letter of Jeremiah', 'EpJer', 'Letter of Jeremiah',
-                  [73]),
+        'epjer': ('Letter of Jeremiah', 'EpJer',
+            'EpJer|Letter of Jeremiah',
+                [73]),
 
-        'prayazariah': ('Prayer of Azariah', 'prayazariah',
-                        '(?:prayer of )?Azar(?:iah)?',
+        'prazar': ('Prayer of Azariah', 'prazar',
+            '(?:prayer of |Pr)?Azar(?:iah)?|Song of (?:the )?Three Children',
                         [68]),
 
-        'susanna': ('Susanna', 'susanna', 'susanna', [64]),
+        'sus': ('Susanna', 'susanna',
+            '(?:Story of )?sus(?:anna)?', 
+                [64]),
         
-        'beldragon': ('Bel and the Dragon', 'beldragon',
+        'bel': ('Bel and the Dragon', 'bel',
                       'bel(?:(?: and the)? dragon)?',
                       [42]),
 

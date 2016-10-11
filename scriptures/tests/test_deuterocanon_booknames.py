@@ -27,7 +27,10 @@ class TestDeuterocanonBookNames(unittest.TestCase):
         self.assertEqual(f('Jud 1:1'), 'Judith 1:1')
 
     def test_additions_to_esther(self):
-        self.assertEqual(f('esther (greek) 1:1'), 'Esther (Greek) 1:1')
+        self.assertEqual(f('esther (greek) 1:1'), 'Additions to Esther 1:1')
+        self.assertEqual(f('additions to esther 1:1'), 'Additions to Esther 1:1')
+        self.assertEqual(f('rest of esther 1:1'), 'Additions to Esther 1:1')
+        self.assertEqual(f('addesth 1:1'), 'Additions to Esther 1:1')
 
     def test_wisdom_of_solomon(self):
         self.assertEqual(f('the wisdom of solomon 1:1'),
@@ -41,23 +44,28 @@ class TestDeuterocanonBookNames(unittest.TestCase):
     def test_ecclesiasticus_aka_sirach(self):
         self.assertEqual(f('sirach 1:1'), 'Sirach 1:1')
         self.assertEqual(f('sir 1:1'), 'Sirach 1:1')
+        self.assertEqual(f('ecclesiasticus 1:1'), 'Sirach 1:1')
 
     def test_baruch(self):
         self.assertEqual(f('baruch 1:1'), 'Baruch 1:1')
         self.assertEqual(f('bar 1:1'), 'Baruch 1:1')
 
     def test_letter_of_jeremiah(self):
-        self.assertEqual(f('letter of jeremiah 1'),
-                         'Letter of Jeremiah 1')
+        self.assertEqual(f('letter of jeremiah 1'), 'Letter of Jeremiah 1')
+        self.assertEqual(f('epjer 1'), 'Letter of Jeremiah 1')
 
     def testprayer_of_azariah(self):
-        self.assertEqual(f('prayer of azariah 1'),
-                         'Prayer of Azariah 1')
-        self.assertEqual(f('azar 1'),
-                         'Prayer of Azariah 1')
+        self.assertEqual(f('prayer of azariah 1'), 'Prayer of Azariah 1')
+        self.assertEqual(f('azar 1'), 'Prayer of Azariah 1')
+        self.assertEqual(f('prazar 1'), 'Prayer of Azariah 1')
+        self.assertEqual(f('song of the three children 1'), 'Prayer of Azariah 1')
+        self.assertEqual(f('song of three children 1'), 'Prayer of Azariah 1')
 
     def test_susanna(self):
         self.assertEqual(f('susanna 1'), 'Susanna 1')
+        self.assertEqual(f('sus 1'), 'Susanna 1')
+        self.assertEqual(f('story of susanna 1'), 'Susanna 1')
+        self.assertEqual(f('story of sus 1'), 'Susanna 1')
 
     def test_bel_and_the_dragon(self):
         self.assertEqual(f('bel and the dragon 1'),

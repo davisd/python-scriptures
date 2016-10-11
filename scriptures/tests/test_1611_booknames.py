@@ -47,10 +47,9 @@ class Test1611BookNames(unittest.TestCase):
         self.assertEqual(f('2 esd 1:1'), 'II Esdras 1:1')
 
     def test_prayer_of_manasseh(self):
-        self.assertEqual(f('prayer of manasseh 1'),
-                         'Prayer of Manasseh 1')
-        self.assertEqual(f('manasseh 1'),
-                         'Prayer of Manasseh 1')
+        self.assertEqual(f('prayer of manasseh 1'), 'Prayer of Manasseh 1')
+        self.assertEqual(f('manasseh 1'), 'Prayer of Manasseh 1')
+        self.assertEqual(f('prman 1'), 'Prayer of Manasseh 1')
 
     # A single deutoronomical book - just to prove the 1611
     # is pulling in deutorocanon texts

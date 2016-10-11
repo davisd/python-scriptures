@@ -20,7 +20,7 @@ class KingJames1611(Text):
                  [40, 48, 36, 52, 56, 59, 70, 63,
                   47, 59, 46, 51, 58, 48, 63, 78]),
         'prman': ('Prayer of Manasseh', 'prman',
-                  '(?:prayer of )?manasseh',
+                  'prman|(?:prayer of )?manasseh',
                   [15]),
     })
 
