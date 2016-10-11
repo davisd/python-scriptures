@@ -5,7 +5,7 @@ setup(
     version='3.0.0pre',
     author='David Davis',
     author_email='davisd@davisd.com',
-    packages=['scriptures',],
+    packages=['scriptures', 'scriptures/texts'],
     url='http://www.davisd.com/projects/python-scriptures/',
     data_files=[('.',['LICENSE'])],
     license='LICENSE',
