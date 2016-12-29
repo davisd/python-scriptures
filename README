@@ -228,14 +228,92 @@ This library is unicode compatible and recognizes the \u2013 en dash and \u2014
 em dash.
 
 
-Additional Texts and Extending
-==============================
+Additional Texts
+================
 
-As of v3.0.0, the library supports additional texts and makes extending the
-library trivial through additional modules.
+This library currently provides the following texts:
 
-TODO: explain that.
+* protestant - scriptures.texts.protestant.ProtestantCanon
+* deuterocanon - scriptures.texts.deutercanon.Deuterocanon
+* kjv1611 - scriptures.texts.kjv1611.KingJames1611
 
+Usage
+-----
+
+To use the additional texts, simply instantiate the text object and use the api
+functions and regular expressions on the new instance.
+
+Example
+~~~~~~~
+
+    >>> from scriptures.texts.kjv1611 import KingJames1611
+    >>> myKJV1611 = KingJames1611()
+    >>> myKJV1611.extract('the protestant books are implemented- Matthew 1:1-5')
+    [(u'Matthew', 1, 1, 1, 5)]
+    >>> myKJV1611.extract('and Deuterocanon (apocrypha)- wisdom of solomon 1:1')
+    [(u'The Wisdom of Solomon', 1, 1, 1, 1)]
+    >>> myKJV1611.extract('and I Esd 1:1, II Esd 1:1, Prayer of Manasseh 1:1')
+    [(u'I Esdras', 1, 1, 1, 1), (u'II Esdras', 1, 1, 1, 1), (u'Prayer of Manasseh', 1, 1, 1, 1)]
+
+
+Custom Texts
+============
+
+As of v3.0.0, the library makes makes extending the library through custom texts
+trivial through additional modules.  Please consider contributing your text
+modules to this project by creating texts under scriptures/texts/ and submitting
+a pull request.
+
+
+Creating a New Text
+-------------------
+
+To create a new Text,
+
+1) Create a class that inherits from scriptures.base.Text
+2) Implement the "books" dictionary
+3) Instantiate your new text and use it
+
+The four api functions will be available from your instance:
+
+* extract
+* reference_to_string
+* normalize_reference
+* is_valid_reference
+
+The two regular expressions are also available:
+
+* book_re
+* scripture_re
+
+
+Example
+~~~~~~~
+
+    >>> from scriptures.texts.base import Text
+    >>> class MyText(Text):
+    >>>     books = {
+    >>>         'test1': ('Test Book 1', 'TBook1', 'test(?:\s)?1', [5, 4, 3, 4, 5]),
+    >>>         'test2': ('Test Book 2', 'TBook2', 'test(?:\s)?2', [5, 4, 3, 4, 5])
+    >>>     }
+    >>>
+    >>> mytext = MyText()
+    >>> mytext.extract('Ok, testing- test1 1:3-5 and test2 2:4')
+    [('Test Book 1', 1, 3, 1, 5), ('Test Book 2', 2, 4, 2, 4)]
+
+
+Creating a New Text Using Another As a Starting Point
+-----------------------------------------------------
+
+If you would like to use an existing set of books as a starting point, simply
+update your books dictionary using the books from the Text class (or classes)
+that you'd like to use as a starting point.
+
+For an example of this, see the "KingJames1611" text class in 
+scriptures/text/kjv1611.py
+
+The KingJames1611 Text class uses the ProtestantCanon and Deuterocanon books as
+a starting point and adds I Esdras, II Esdras, and the Prayer of Manasseh.
 
 Test Suite
 ==========
