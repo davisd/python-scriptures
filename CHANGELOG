@@ -87,3 +87,13 @@
 * Thanks to @mpnordland for the bug report and feature request
   - I Sam 28-28:2 format now works as expected
   - Multichapter references in this format such as I Sam 28-29:2 also work
+
+3.0.0 (2016-12-29) - New Text Implementation
+============================================
+* Adds ability to easily extend Texts (Create new Texts)
+* Provides additional texts as part of the library
+  - Protestant Bible
+  - King James 1611
+  - Deuterocanon
+* Thanks to @aletheist, @strawhead, @JeffMelton, @mlv for helping with this release!
+
